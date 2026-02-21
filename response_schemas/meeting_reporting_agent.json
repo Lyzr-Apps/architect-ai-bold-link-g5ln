@@ -1,0 +1,71 @@
+{
+  "agent_name": "Meeting & Reporting Agent",
+  "agent_id": "69996377730bbd74d53e8af3",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "document_type": {"type": "string"},
+      "title": {"type": "string"},
+      "sections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "heading": {"type": "string"},
+            "content": {"type": "string"},
+            "subsections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "subheading": {"type": "string"},
+                  "details": {"type": "string"}
+                },
+                "required": ["subheading", "details"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["heading", "content", "subsections"],
+          "additionalProperties": false
+        }
+      },
+      "action_items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "action": {"type": "string"},
+            "responsible": {"type": "string"},
+            "deadline": {"type": "string"},
+            "priority": {"type": "string"},
+            "status": {"type": "string"}
+          },
+          "required": ["action", "responsible", "deadline", "priority", "status"],
+          "additionalProperties": false
+        }
+      },
+      "risks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "risk": {"type": "string"},
+            "probability": {"type": "string"},
+            "impact": {"type": "string"},
+            "mitigation": {"type": "string"},
+            "owner": {"type": "string"}
+          },
+          "required": ["risk", "probability", "impact", "mitigation", "owner"],
+          "additionalProperties": false
+        }
+      },
+      "summary": {"type": "string"}
+    },
+    "required": ["document_type", "title", "sections", "action_items", "risks", "summary"],
+    "additionalProperties": false
+  }
+}

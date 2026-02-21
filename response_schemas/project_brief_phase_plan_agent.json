@@ -1,0 +1,55 @@
+{
+  "agent_name": "Project Brief & Phase Plan Agent",
+  "agent_id": "699963762361782dde9da362",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "document_type": {"type": "string"},
+      "title": {"type": "string"},
+      "sections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "heading": {"type": "string"},
+            "content": {"type": "string"},
+            "subsections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "subheading": {"type": "string"},
+                  "details": {"type": "string"}
+                },
+                "required": ["subheading", "details"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["heading", "content", "subsections"],
+          "additionalProperties": false
+        }
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "phase": {"type": "string"},
+            "milestone": {"type": "string"},
+            "duration": {"type": "string"},
+            "dependencies": {"type": "string"}
+          },
+          "required": ["phase", "milestone", "duration", "dependencies"],
+          "additionalProperties": false
+        }
+      },
+      "summary": {"type": "string"}
+    },
+    "required": ["document_type", "title", "sections", "milestones", "summary"],
+    "additionalProperties": false
+  }
+}

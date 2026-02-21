@@ -1,0 +1,112 @@
+{
+  "agent_name": "Documentation Orchestrator",
+  "agent_id": "69996390730bbd74d53e8b02",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": true,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "document_type": {"type": "string"},
+      "title": {"type": "string"},
+      "sections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "heading": {"type": "string"},
+            "content": {"type": "string"},
+            "subsections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "subheading": {"type": "string"},
+                  "details": {"type": "string"}
+                },
+                "required": ["subheading", "details"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["heading", "content", "subsections"],
+          "additionalProperties": false
+        }
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "phase": {"type": "string"},
+            "milestone": {"type": "string"},
+            "duration": {"type": "string"},
+            "dependencies": {"type": "string"}
+          },
+          "required": ["phase", "milestone", "duration", "dependencies"],
+          "additionalProperties": false
+        }
+      },
+      "fee_schedule": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "phase": {"type": "string"},
+            "fee_percentage": {"type": "string"},
+            "fee_amount": {"type": "string"},
+            "payment_trigger": {"type": "string"}
+          },
+          "required": ["phase", "fee_percentage", "fee_amount", "payment_trigger"],
+          "additionalProperties": false
+        }
+      },
+      "deliverables": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "item": {"type": "string"},
+            "format": {"type": "string"},
+            "phase": {"type": "string"}
+          },
+          "required": ["item", "format", "phase"],
+          "additionalProperties": false
+        }
+      },
+      "action_items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "action": {"type": "string"},
+            "responsible": {"type": "string"},
+            "deadline": {"type": "string"},
+            "priority": {"type": "string"},
+            "status": {"type": "string"}
+          },
+          "required": ["action", "responsible", "deadline", "priority", "status"],
+          "additionalProperties": false
+        }
+      },
+      "risks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "risk": {"type": "string"},
+            "probability": {"type": "string"},
+            "impact": {"type": "string"},
+            "mitigation": {"type": "string"},
+            "owner": {"type": "string"}
+          },
+          "required": ["risk", "probability", "impact", "mitigation", "owner"],
+          "additionalProperties": false
+        }
+      },
+      "summary": {"type": "string"}
+    },
+    "required": ["document_type", "title", "sections", "milestones", "fee_schedule", "deliverables", "action_items", "risks", "summary"],
+    "additionalProperties": false
+  }
+}

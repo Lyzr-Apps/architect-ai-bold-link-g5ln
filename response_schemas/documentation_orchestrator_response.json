@@ -1,0 +1,132 @@
+{
+  "agent_name": "Documentation Orchestrator",
+  "agent_id": "69996390730bbd74d53e8b02",
+  "description": "Coordinates sub-agents based on requested document type, passes project context, aggregates final structured output, and enforces professional architectural documentation standards. This agent REQUIRES file_output: true for PDF/JSON export.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "document_type": "string",
+    "title": "string",
+    "sections": [
+      {
+        "heading": "string",
+        "content": "string",
+        "subsections": [
+          {
+            "subheading": "string",
+            "details": "string"
+          }
+        ]
+      }
+    ],
+    "milestones": [
+      {
+        "phase": "string",
+        "milestone": "string",
+        "duration": "string",
+        "dependencies": "string"
+      }
+    ],
+    "fee_schedule": [
+      {
+        "phase": "string",
+        "fee_percentage": "string",
+        "fee_amount": "string",
+        "payment_trigger": "string"
+      }
+    ],
+    "deliverables": [
+      {
+        "item": "string",
+        "format": "string",
+        "phase": "string"
+      }
+    ],
+    "action_items": [
+      {
+        "action": "string",
+        "responsible": "string",
+        "deadline": "string",
+        "priority": "string",
+        "status": "string"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "string",
+        "probability": "string",
+        "impact": "string",
+        "mitigation": "string",
+        "owner": "string"
+      }
+    ],
+    "summary": "string"
+  },
+  "example_response": {
+    "document_type": "sample string",
+    "title": "sample string",
+    "sections": [
+      {
+        "heading": "sample string",
+        "content": "sample string",
+        "subsections": [
+          {
+            "subheading": "sample string",
+            "details": "sample string"
+          }
+        ]
+      }
+    ],
+    "milestones": [
+      {
+        "phase": "sample string",
+        "milestone": "sample string",
+        "duration": "sample string",
+        "dependencies": "sample string"
+      }
+    ],
+    "fee_schedule": [
+      {
+        "phase": "sample string",
+        "fee_percentage": "sample string",
+        "fee_amount": "sample string",
+        "payment_trigger": "sample string"
+      }
+    ],
+    "deliverables": [
+      {
+        "item": "sample string",
+        "format": "sample string",
+        "phase": "sample string"
+      }
+    ],
+    "action_items": [
+      {
+        "action": "sample string",
+        "responsible": "sample string",
+        "deadline": "sample string",
+        "priority": "sample string",
+        "status": "sample string"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "sample string",
+        "probability": "sample string",
+        "impact": "sample string",
+        "mitigation": "sample string",
+        "owner": "sample string"
+      }
+    ],
+    "summary": "sample string"
+  },
+  "has_module_outputs": true,
+  "module_outputs_example": {
+    "artifact_files": [
+      {
+        "file_url": "https://example.com/file.pdf"
+      }
+    ]
+  }
+}

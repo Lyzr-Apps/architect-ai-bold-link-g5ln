@@ -1,0 +1,59 @@
+{
+  "nodes": [
+    {"id": "input_node", "type": "Input", "label": "Project Details Input", "nodeCategory": "input"},
+    {"id": "manager_agent", "type": "Agent", "label": "Documentation Orchestrator", "nodeCategory": "agent"},
+    {"id": "brief_agent", "type": "Agent", "label": "Project Brief & Phase Plan Agent", "nodeCategory": "agent"},
+    {"id": "proposal_agent", "type": "Agent", "label": "Proposal & Contracts Agent", "nodeCategory": "agent"},
+    {"id": "meeting_agent", "type": "Agent", "label": "Meeting & Reporting Agent", "nodeCategory": "agent"},
+    {"id": "output_node", "type": "Output", "label": "Generated Document", "nodeCategory": "end"}
+  ],
+  "edges": [
+    {"source": "input_node", "target": "manager_agent"},
+    {"source": "manager_agent", "target": "brief_agent"},
+    {"source": "manager_agent", "target": "proposal_agent"},
+    {"source": "manager_agent", "target": "meeting_agent"},
+    {"source": "brief_agent", "target": "output_node"},
+    {"source": "proposal_agent", "target": "output_node"},
+    {"source": "meeting_agent", "target": "output_node"}
+  ],
+  "agents": {
+    "manager_agent": {
+      "agent_id": "69996390730bbd74d53e8b02",
+      "name": "Documentation Orchestrator",
+      "provider_id": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 1,
+      "file_output": true,
+      "managed_agents": [
+        "699963762361782dde9da362",
+        "69996376730bbd74d53e8af1",
+        "69996377730bbd74d53e8af3"
+      ]
+    },
+    "brief_agent": {
+      "agent_id": "699963762361782dde9da362",
+      "name": "Project Brief & Phase Plan Agent",
+      "provider_id": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.4,
+      "top_p": 0.95
+    },
+    "proposal_agent": {
+      "agent_id": "69996376730bbd74d53e8af1",
+      "name": "Proposal & Contracts Agent",
+      "provider_id": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.5,
+      "top_p": 0.95
+    },
+    "meeting_agent": {
+      "agent_id": "69996377730bbd74d53e8af3",
+      "name": "Meeting & Reporting Agent",
+      "provider_id": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.4,
+      "top_p": 0.95
+    }
+  }
+}

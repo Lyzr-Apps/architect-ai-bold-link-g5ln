@@ -1,0 +1,14 @@
+{
+  "manager_agent_id": "69996390730bbd74d53e8b02",
+  "sub_agents": {
+    "brief_phase_agent_id": "699963762361782dde9da362",
+    "proposal_contracts_agent_id": "69996376730bbd74d53e8af1",
+    "meeting_reporting_agent_id": "69996377730bbd74d53e8af3"
+  },
+  "all_agent_ids": [
+    "69996390730bbd74d53e8b02",
+    "699963762361782dde9da362",
+    "69996376730bbd74d53e8af1",
+    "69996377730bbd74d53e8af3"
+  ]
+}
