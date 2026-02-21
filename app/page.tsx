@@ -3,10 +3,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { callAIAgent } from '@/lib/aiAgent'
 import type { ArtifactFile } from '@/lib/aiAgent'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Switch } from '@/components/ui/switch'
-import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
 import {
   FiPlus,
   FiArrowLeft,
@@ -473,7 +469,7 @@ function DocumentViewer({ doc, fileOutputs, isEditing, onToggleEdit }: {
       </div>
 
       {/* Document Body */}
-      <ScrollArea className="flex-1">
+      <div className="flex-1 overflow-y-auto">
         <div className="p-6 space-y-6">
           {/* Document Type Badge */}
           <div className="flex items-center gap-2">
@@ -682,7 +678,7 @@ function DocumentViewer({ doc, fileOutputs, isEditing, onToggleEdit }: {
             </div>
           )}
         </div>
-      </ScrollArea>
+      </div>
     </div>
   )
 }
@@ -1010,7 +1006,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                   <FiPlus className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <ScrollArea className="flex-1 px-2">
+              <div className="flex-1 overflow-y-auto px-2">
                 <div className="space-y-0.5 pb-4">
                   {projects.map((project) => (
                     <button
@@ -1026,7 +1022,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                     <p className="text-xs text-muted-foreground px-3 py-4 text-center">No projects yet</p>
                   )}
                 </div>
-              </ScrollArea>
+              </div>
             </div>
           )}
 
@@ -1058,7 +1054,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
               )}
               {screen === 'workspace' && selectedProject && (
                 <>
-                  <Separator orientation="vertical" className="h-5" />
+                  <div className="h-5 w-px bg-border" />
                   <span className="font-serif text-sm font-medium tracking-wide">{selectedProject.name}</span>
                   <span className={`px-2 py-0.5 rounded text-xs font-medium border ${getProjectTypeBadgeColor(selectedProject.projectType)}`}>
                     {selectedProject.projectType}
@@ -1070,18 +1066,22 @@ Please generate a comprehensive, professional ${activeDocType} document.`
               )}
             </div>
             <div className="flex items-center gap-3">
-              <Label htmlFor="sample-toggle" className="text-xs text-muted-foreground">Sample Data</Label>
-              <Switch
+              <label htmlFor="sample-toggle" className="text-xs text-muted-foreground cursor-pointer">Sample Data</label>
+              <button
                 id="sample-toggle"
-                checked={sampleDataOn}
-                onCheckedChange={(checked) => setSampleDataOn(checked)}
-              />
+                role="switch"
+                aria-checked={sampleDataOn}
+                onClick={() => setSampleDataOn(!sampleDataOn)}
+                className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors ${sampleDataOn ? 'bg-[hsl(36,60%,31%)]' : 'bg-input'}`}
+              >
+                <span className={`pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg transition-transform ${sampleDataOn ? 'translate-x-4' : 'translate-x-0'}`} />
+              </button>
             </div>
           </header>
 
           {/* Content Area */}
           {screen === 'dashboard' && (
-            <ScrollArea className="flex-1">
+            <div className="flex-1 overflow-y-auto">
               <div className="p-6 space-y-6 max-w-7xl mx-auto w-full">
                 {/* Stats Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1236,7 +1236,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                 {/* Agent Status */}
                 <AgentStatusPanel activeAgentId={activeAgentId} />
               </div>
-            </ScrollArea>
+            </div>
           )}
 
           {/* ─── WORKSPACE SCREEN ─── */}
@@ -1246,7 +1246,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
               <div className="w-[40%] border-r border-border flex flex-col min-h-0 flex-shrink-0">
                 {/* Doc Type Tabs */}
                 <div className="border-b border-border flex-shrink-0">
-                  <ScrollArea className="w-full">
+                  <div className="w-full overflow-x-auto">
                     <div className="flex gap-0 px-2 pt-2">
                       {DOC_TYPES.map((dt) => (
                         <button
@@ -1258,11 +1258,11 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                         </button>
                       ))}
                     </div>
-                  </ScrollArea>
+                  </div>
                 </div>
 
                 {/* Contextual Form */}
-                <ScrollArea className="flex-1">
+                <div className="flex-1 overflow-y-auto">
                   <div className="p-4 space-y-4">
                     {/* Project Summary (always shown) */}
                     <div className="rounded-lg border border-border bg-muted/20 p-4 space-y-2">
@@ -1568,7 +1568,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                     {/* Agent Status */}
                     <AgentStatusPanel activeAgentId={activeAgentId} />
                   </div>
-                </ScrollArea>
+                </div>
               </div>
 
               {/* Right Panel (60%) - Document Viewer */}
@@ -1627,7 +1627,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                   <FiX className="w-5 h-5" />
                 </button>
               </div>
-              <ScrollArea className="flex-1">
+              <div className="flex-1 overflow-y-auto">
                 <div className="p-5 space-y-4">
                   {/* Project Name */}
                   <div>
@@ -1757,7 +1757,7 @@ Please generate a comprehensive, professional ${activeDocType} document.`
                     />
                   </div>
                 </div>
-              </ScrollArea>
+              </div>
               <div className="p-5 border-t border-border flex gap-3">
                 <button
                   onClick={() => { setShowNewProjectModal(false); setNewProject(emptyProject) }}
